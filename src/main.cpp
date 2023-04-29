@@ -26,10 +26,12 @@ void loop()
     if(++xDegrees >= 360)
     {
       xDegrees = 0;
+      Serial.println("Left Click!");
       bleMouse.click(MOUSE_LEFT);
     }
     else if(xDegrees == 180)
     {
+      Serial.println("Right Click!");
       bleMouse.click(MOUSE_RIGHT);
     }
   }
