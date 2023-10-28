@@ -7,7 +7,10 @@ double xDegrees = 0.0;
 
 void setup()
 {
-  Serial.begin(115200);
+  // https://stackoverflow.com/a/75576025
+  Serial.begin(115200, SERIAL_8N1);
+  Serial.end();
+  Serial.begin(115200, SERIAL_8N1);
   Serial.println("Starting BLE work!");
   bleMouse.begin();
 }
@@ -34,6 +37,11 @@ void loop()
       Serial.println("Right Click!");
       bleMouse.click(MOUSE_RIGHT);
     }
+  }
+  else
+  {
+    Serial.println("Not connected.");
+    delay(1000);
   }
 
   delay(10);
